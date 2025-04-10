@@ -11,6 +11,7 @@ namespace Assets.Scripts.Controllers.MovementControl
         private Camera Camera { get; set; }
         private InitInputSystem InputSystem { get; set; }
 
+        [SerializeField]private float rotationSpeed;
         public override void Spawned()
         {
             Camera = Camera.main;
@@ -21,6 +22,11 @@ namespace Assets.Scripts.Controllers.MovementControl
         {
 
             NetworkController.Move(GetDirection());
+
+            Vector3 mousePosition = Camera.WorldToScreenPoint(Input.mousePosition);
+            transform.forward = Input.mousePosition;
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(mousePosition), rotationSpeed * Runner.DeltaTime);
+            Debug.Log(mousePosition);
         }
 
         public Vector3 GetDirection()
