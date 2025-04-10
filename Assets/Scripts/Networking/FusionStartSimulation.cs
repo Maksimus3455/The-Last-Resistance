@@ -6,12 +6,14 @@ namespace Fusion_Network_Library
 {
     public sealed class FusionStartSimulation : MonoBehaviour
     {
-        [SerializeField] private NetworkSceneManagerDefault _networkScene;
-        [SerializeField] private NetworkRunner _runner;                           //ядро, основной класс сетевого кода
+        private NetworkSceneManagerDefault _networkScene;
+        private NetworkRunner _runner;                           //ядро, основной класс сетевого кода
         private string _sessionName = "SampleSession";
 
         private void Start()
         {
+            _networkScene = GetComponent<NetworkSceneManagerDefault>();
+            _runner = GetComponent<NetworkRunner>();
             StartSimulation(GameMode.AutoHostOrClient);
         }
 
@@ -31,6 +33,7 @@ namespace Fusion_Network_Library
                 SessionName = _sessionName
             });
         }
+
         /// <summary>
         ///  Присваивание обычной сцены сетевой
         /// </summary>
@@ -40,6 +43,5 @@ namespace Fusion_Network_Library
             int buildIndex = SceneManager.GetActiveScene().buildIndex;
             return SceneRef.FromIndex(buildIndex);
         }
-
     }
 }

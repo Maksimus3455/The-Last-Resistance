@@ -6,8 +6,14 @@ namespace Assets.Scripts.Networking.NetworkMovement
 {
     public sealed class NetworkMovementController : NetworkBehaviour
     {
-        [SerializeField] private MovementController _movement;
-        [SerializeField] private NetworkInputReceiver _inputReceiver;
+        private MovementController _movement;
+        private NetworkInputReceiver _inputReceiver;
+
+        public override void Spawned()
+        {
+            _movement = new();
+            _inputReceiver = GetComponent<NetworkInputReceiver>();
+        }
 
         public override void FixedUpdateNetwork()
         {

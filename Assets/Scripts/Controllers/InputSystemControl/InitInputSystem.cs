@@ -1,13 +1,15 @@
-﻿
+﻿using UnityEngine;
+
 namespace Assets.Scripts.Controllers.InputSystemControl
 {
     internal class InitInputSystem
     {
-        public MainInputSystem InputSystem {  get;  }
+        public MainInputSystem MainInputSystem {  get;  }
         public InitInputSystem()
         {
-            InputSystem = new();
-            InputSystem.Enable();
+            MainInputSystem = new();
+            MainInputSystem.Enable();
+            Debug.Log("Инициализация системы ввода");
         }
     }
 }
