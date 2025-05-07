@@ -5,31 +5,45 @@ namespace Assets.Scripts.Controllers.MovementControl
     internal class MovementController
     {
         private Camera Camera { get; set; } = Camera.main;
-        private void Movement(GameObject player, Vector2 InputDirection, Vector3 cameraDirection, float moveSpeed)
+
+        private void MovementToTargetDirection(GameObject player, Vector2 InputDirection, Vector3 targetDirection, float moveSpeed)
         {
-            InputDirection.x = cameraDirection.x;
-            cameraDirection.y = 0;
-            InputDirection.y = cameraDirection.y;
-            var moveDir = new Vector3(cameraDirection.x, cameraDirection.y, cameraDirection.z);
-            var currentRot = player.transform.rotation;
-            var newRot = Quaternion.LookRotation(Vector3.Normalize(moveDir));
-            player.transform.rotation = Quaternion.Lerp(currentRot, newRot, Time.deltaTime * 20);
+            InputDirection.x = targetDirection.x;
+            targetDirection.y = 0;
+            InputDirection.y = targetDirection.y;
+            var moveDir = new Vector3(targetDirection.x, targetDirection.y, targetDirection.z);
             player.transform.position += moveSpeed * Time.deltaTime * moveDir;
         }
 
-        public void PlayerMove(GameObject player, Vector2 InputDirection, float moveSpeed)
+        public void PlayerMove(GameObject player, GameObject targetVector, Vector2 InputDirection, float moveSpeed)
         {
             if (InputDirection.y > 0)
-                Movement(player, InputDirection, Camera.transform.forward, moveSpeed);
+                MovementToTargetDirection(player, InputDirection, targetVector.transform.forward, moveSpeed);
 
             if (InputDirection.y < 0)
-                Movement(player, InputDirection, -Camera.transform.forward, moveSpeed);
+                MovementToTargetDirection(player, InputDirection, -targetVector.transform.forward, moveSpeed);
 
             if (InputDirection.x > 0)
-                Movement(player, InputDirection, Camera.transform.right, moveSpeed);
+                MovementToTargetDirection(player, InputDirection, targetVector.transform.right, moveSpeed);
 
             if (InputDirection.x < 0)
-                Movement(player, InputDirection, -Camera.transform.right, moveSpeed);
+                MovementToTargetDirection(player, InputDirection, -targetVector.transform.right, moveSpeed);
+        }
+
+        public void PlayerRotation(GameObject player, float rotationSpeed)
+        {
+            Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+            Quaternion targetRotation;
+
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            {
+                Vector3 rayPosition = new(hitInfo.point.x, 0, hitInfo.point.z);
+                Vector3 playerPosition = new(player.transform.position.x, 0, player.transform.position.z);
+                Vector3 relativPos = rayPosition - playerPosition;
+                targetRotation = Quaternion.LookRotation(relativPos, Vector3.up);
+                player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            }
+
         }
     }
 }

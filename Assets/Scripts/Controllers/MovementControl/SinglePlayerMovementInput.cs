@@ -6,26 +6,22 @@ namespace Assets.Scripts.Controllers.MovementControl
 {
     internal class SinglePlayerMovementInput : MonoBehaviour
     {
-        private CharacterController Controller { get; set; }
-        private InitInputSystem InputSystem { get;  set; }
         [field: SerializeField] private float MoveSpeed { get; set; }
-
+        [field: SerializeField] private float RotationSpeed { get; set; }
+        private InitInputSystem InputSystem { get;  set; }
+        private MovementController Controller { get; set; }
         private void Awake()
         {
             InputSystem = new();
-
-            Controller = GetComponent<CharacterController>();
+            Controller = new();
         }
 
         private void FixedUpdate()
         {
-            Controller.Move(GetDirection());
-        }
-        public Vector3 GetDirection()
-        {
-            var direction = InputSystem.MainInputSystem.Player.Move.ReadValue<Vector2>();
-            Vector3 moveDirection = new Vector3(-direction.y, 0, direction.x) * Time.deltaTime * MoveSpeed;
-            return moveDirection;
+
+            Controller.PlayerMove(this.gameObject, this.gameObject, InputSystem.MainInputSystem.Player.Move.ReadValue<Vector2>(), MoveSpeed);
+            Controller.PlayerRotation(this.gameObject, RotationSpeed);
+
         }
 
     }

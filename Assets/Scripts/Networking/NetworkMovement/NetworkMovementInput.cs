@@ -6,34 +6,21 @@ namespace Assets.Scripts.Controllers.MovementControl
 {
     internal class NetworkMovementInput : NetworkBehaviour
     {
-
-        private NetworkCharacterController NetworkController { get; set; }
-        private Camera Camera { get; set; }
+        [field: SerializeField] private float RotationSpeed { get; set; }
+        [field: SerializeField] private float MoveSpeed { get; set; }
         private InitInputSystem InputSystem { get; set; }
+        private MovementController Controller { get; set; }
 
-        [SerializeField]private float rotationSpeed;
         public override void Spawned()
         {
-            Camera = Camera.main;
             InputSystem = new();
-            NetworkController = GetComponent<NetworkCharacterController>();
+            Controller = new();
         }
         public override void FixedUpdateNetwork()
         {
+            Controller.PlayerMove(this.gameObject, this.gameObject, InputSystem.MainInputSystem.Player.Move.ReadValue<Vector2>(), MoveSpeed);
+            Controller.PlayerRotation(this.gameObject, RotationSpeed);
 
-            NetworkController.Move(GetDirection());
-
-            Vector3 mousePosition = Camera.WorldToScreenPoint(Input.mousePosition);
-            transform.forward = Input.mousePosition;
-            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(mousePosition), rotationSpeed * Runner.DeltaTime);
-            Debug.Log(mousePosition);
-        }
-
-        public Vector3 GetDirection()
-        {
-            var direction = InputSystem.MainInputSystem.Player.Move.ReadValue<Vector2>();
-            Vector3 moveDirection = new Vector3(-direction.y, 0, direction.x) * Runner.DeltaTime;
-            return moveDirection;
         }
     }
 }
