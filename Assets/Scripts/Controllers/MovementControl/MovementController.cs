@@ -4,8 +4,12 @@ namespace Assets.Scripts.Controllers.MovementControl
 {
     internal class MovementController
     {
-        private Camera Camera { get; set; } = Camera.main;
+        private Camera Camera { get; set; }
 
+        public MovementController()
+        {
+            Camera = Camera.main;
+        }
         private void MovementToTargetDirection(GameObject player, Vector2 InputDirection, Vector3 targetDirection, float moveSpeed)
         {
             InputDirection.x = targetDirection.x;
@@ -30,9 +34,9 @@ namespace Assets.Scripts.Controllers.MovementControl
                 MovementToTargetDirection(player, InputDirection, -targetVector.transform.right, moveSpeed);
         }
 
-        public void PlayerRotation(GameObject player, float rotationSpeed)
+        public void PlayerRotation(GameObject player, float rotationSpeed, Vector3 targetInput)
         {
-            Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.ScreenPointToRay(targetInput);
             Quaternion targetRotation;
 
             if (Physics.Raycast(ray, out RaycastHit hitInfo))

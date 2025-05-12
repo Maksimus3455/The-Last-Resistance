@@ -8,6 +8,8 @@ namespace Fusion_Network_Library
 {
     public sealed class NetworkCallbacksReceiver : MonoBehaviour, INetworkRunnerCallbacks
     {
+        private NetworkRunner _runnerPrefab;
+
         public event Action<NetworkRunner, NetworkInput> OnPopulateInput;
         public void OnConnectedToServer(NetworkRunner runner)
         {
@@ -29,9 +31,9 @@ namespace Fusion_Network_Library
         {
         }
 
-        public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
+        public async void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
         {
-
+            await runner.Shutdown(shutdownReason: ShutdownReason.HostMigration); //закрываем старый раннер, старый хост
         }
 
         public void OnInput(NetworkRunner runner, NetworkInput input)

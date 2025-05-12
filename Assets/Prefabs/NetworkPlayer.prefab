@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1940942935670060689}
+  - {fileID: 5519176226805909165}
   m_Father: {fileID: 824601451838791646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8162359347231271180
@@ -219,6 +220,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8214464370334479516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5519176226805909165}
+  m_Layer: 0
+  m_Name: TargetForCameraFollow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5519176226805909165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214464370334479516}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2904986917834857223}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9111041595902365183
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,9 +262,10 @@ GameObject:
   - component: {fileID: 824601451838791646}
   - component: {fileID: 3708364674717540322}
   - component: {fileID: 2720019135074675758}
+  - component: {fileID: -6763657011049780636}
   m_Layer: 0
   m_Name: NetworkPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,6 +304,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2720019135074675758}
+  - {fileID: -6763657011049780636}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &2720019135074675758
 MonoBehaviour:
@@ -284,4 +318,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c3373ef2ed1604b89c8fae49c728b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 56.18
+  <RotationSpeed>k__BackingField: 50
+  <MoveSpeed>k__BackingField: 75
+  <receiver>k__BackingField: {fileID: 0}
+--- !u!114 &-6763657011049780636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111041595902365183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e831c5e8190d54b9a1049e6674de27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementDir: {x: 0, y: 0, z: 0}
