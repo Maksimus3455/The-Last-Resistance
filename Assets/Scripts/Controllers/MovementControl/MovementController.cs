@@ -19,7 +19,7 @@ namespace Assets.Scripts.Controllers.MovementControl
             player.transform.position += moveSpeed * Time.deltaTime * moveDir;
         }
 
-        public void PlayerMove(GameObject player, GameObject targetVector, Vector2 InputDirection, float moveSpeed)
+        public void PlayerMove(GameObject player, GameObject targetVector, Vector3 InputDirection, float moveSpeed)
         {
             if (InputDirection.y > 0)
                 MovementToTargetDirection(player, InputDirection, targetVector.transform.forward, moveSpeed);
@@ -49,5 +49,6 @@ namespace Assets.Scripts.Controllers.MovementControl
             }
 
         }
+
     }
 }

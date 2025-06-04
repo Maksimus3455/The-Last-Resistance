@@ -579,11 +579,9 @@ GameObject:
   - component: {fileID: 1132669162}
   - component: {fileID: 1132669161}
   - component: {fileID: 1132669160}
-  - component: {fileID: 1132669164}
-  - component: {fileID: 1132669165}
   m_Layer: 0
   m_Name: FollowCamera
-  m_TagString: Untagged
+  m_TagString: FollowCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,37 +692,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1132669164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132669159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ccf98c37c20c9469f3f6452e71beea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Spawner>k__BackingField: {fileID: 1162798276}
---- !u!114 &1132669165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132669159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SortKey: 1578724300
-  ObjectInterest: 1
-  Flags: 262145
-  NestedObjects: []
-  NetworkedBehaviours: []
-  ForceRemoteRenderTimeframe: 0
 --- !u!1 &1162798273
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,9 +707,6 @@ GameObject:
   - component: {fileID: 1162798274}
   - component: {fileID: 1162798276}
   - component: {fileID: 1162798275}
-  - component: {fileID: 1162798281}
-  - component: {fileID: 1162798283}
-  - component: {fileID: 1162798282}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -841,51 +805,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d2e278cd9e43041a94dbbfa1e4e840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1162798281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162798273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b593d5a85b83d84c8f191e1257318f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1162798282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162798273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4a2444285d48c4b96993ac4750cfce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementInput: {fileID: 1162798283}
-  _callbacksReceiver: {fileID: 1162798281}
---- !u!114 &1162798283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162798273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94cb0ec5baebfa94f981dea0c2ef02c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 1132669163}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 686237464}
   - {fileID: 1162798279}
-  - {fileID: 1132669163}

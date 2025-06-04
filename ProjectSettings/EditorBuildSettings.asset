@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestSharedMode.unity
+    guid: c9e979aaae1bd2640bc4e8415787caae
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 58fdd79b408c72c48a189cebd80c46f5
   - enabled: 1
