@@ -261,9 +261,10 @@ GameObject:
   m_Component:
   - component: {fileID: 824601451838791646}
   - component: {fileID: 3708364674717540322}
-  - component: {fileID: 565347475456866967}
   - component: {fileID: 5678282380319970171}
   - component: {fileID: 65227231217891038}
+  - component: {fileID: 259119698322218080}
+  - component: {fileID: 4903945413788408481}
   m_Layer: 0
   m_Name: NetworkPlayer
   m_TagString: Player
@@ -304,23 +305,9 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 565347475456866967}
   - {fileID: 65227231217891038}
+  - {fileID: 259119698322218080}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &565347475456866967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9111041595902365183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc4b08d4d81b7e48994e6915848a875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <RotationSpeed>k__BackingField: 100
-  <MoveSpeed>k__BackingField: 100
 --- !u!114 &5678282380319970171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +337,29 @@ MonoBehaviour:
   SyncParent: 1
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &259119698322218080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111041595902365183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d253281bb3dcb84cb9af052fcddd2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <RotationSpeed>k__BackingField: 100
+  <MoveSpeed>k__BackingField: 100
+--- !u!114 &4903945413788408481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111041595902365183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c327c8030127c9409e767d8a0ff3644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

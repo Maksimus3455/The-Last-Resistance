@@ -15,16 +15,12 @@ namespace Fusion_Network_Library
 
         void IPlayerJoined.PlayerJoined(PlayerRef playerRef)
         {
-            //if (!Runner.IsServer)
-            //    return;
             if (playerRef == Runner.LocalPlayer)
                 _playerSpawner.SpawnPlayer(playerRef);
         }
 
         void IPlayerLeft.PlayerLeft(PlayerRef playerRef)
         {
-            //if (!Runner.IsServer)
-            //    return;
             if (playerRef == Runner.LocalPlayer)
                 _playerDespawner.DespawnPlayer(playerRef);
         }
